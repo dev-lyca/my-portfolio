@@ -1,0 +1,148 @@
+import { Skill } from "@/types/skill";
+
+export const skills: Skill[] = [
+  {
+    name: "Next.js",
+    proficiency: 90,
+    category: "Frontend",
+    description: "Full-stack React framework for frontend + API routes",
+  },
+  {
+    name: "React Libraries",
+    proficiency: 80,
+    category: "Frontend",
+    description: "HeroUI, React Icons, Nodemailer, Framer-motion",
+  },
+  {
+    name: "Tailwind CSS",
+    proficiency: 85,
+    category: "Frontend",
+    description: "Utility-first CSS framework",
+  },
+  {
+    name: "Bootstrap",
+    proficiency: 70,
+    category: "Frontend",
+    description: "CSS framework for responsive design",
+  },
+  {
+    name: "Express.js",
+    proficiency: 80,
+    category: "Backend",
+    description: "Backend framework for Node.js",
+  },
+  {
+    name: "Laravel",
+    proficiency: 65,
+    category: "Backend",
+    description: "PHP web framework",
+  },
+  {
+    name: "PostgreSQL",
+    proficiency: 80,
+    category: "Backend",
+    description: "Relational database",
+  },
+  {
+    name: "MySQL",
+    proficiency: 75,
+    category: "Backend",
+    description: "Relational database",
+  },
+  {
+    name: "MongoDB",
+    proficiency: 70,
+    category: "Backend",
+    description: "NoSQL database",
+  },
+  {
+    name: "PrismaORM",
+    proficiency: 70,
+    category: "Tools",
+    description: "ORM for PostgreSQL, MySQL, MongoDB",
+  },
+  {
+    name: "Mongoose",
+    proficiency: 65,
+    category: "Tools",
+    description: "ODM for MongoDB",
+  },
+  {
+    name: "Neon",
+    proficiency: 60,
+    category: "Tools",
+    description: "Cloud-hosted PostgreSQL",
+  },
+  {
+    name: "phpMyAdmin",
+    proficiency: 55,
+    category: "Tools",
+    description: "GUI tool for MySQL databases",
+  },
+  {
+    name: "HTML",
+    proficiency: 90,
+    category: "Other",
+    description: "Markup language",
+  },
+  {
+    name: "CSS",
+    proficiency: 85,
+    category: "Other",
+    description: "Styling language",
+  },
+  {
+    name: "JavaScript",
+    proficiency: 90,
+    category: "Other",
+    description: "Programming language",
+  },
+  {
+    name: "PHP",
+    proficiency: 70,
+    category: "Other",
+    description: "Server-side scripting language",
+  },
+  {
+    name: "Git",
+    proficiency: 90,
+    category: "Tools",
+    description: "Version control",
+  },
+  {
+    name: "GitHub",
+    proficiency: 85,
+    category: "Tools",
+    description: "Repository hosting",
+  },
+  {
+    name: "Postman",
+    proficiency: 75,
+    category: "Tools",
+    description: "API testing",
+  },
+  {
+    name: "Thunder Client",
+    proficiency: 70,
+    category: "Tools",
+    description: "VS Code API testing",
+  },
+  {
+    name: "Vercel",
+    proficiency: 85,
+    category: "Tools",
+    description: "Hosting for frontend apps",
+  },
+  {
+    name: "Hostinger",
+    proficiency: 65,
+    category: "Tools",
+    description: "Web hosting for PHP/Laravel",
+  },
+  {
+    name: "Render",
+    proficiency: 70,
+    category: "Tools",
+    description: "Cloud hosting for web apps",
+  },
+];
