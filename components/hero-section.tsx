@@ -24,7 +24,8 @@ export default function HeroSection() {
             <Typewriter
               text={["WEB", "DEVELOPER"]}
               as="h2"
-              className="text-5xl text-left sm:text-6xl lg:text-7xl font-extrabold text-zinc-900 dark:text-white tracking-tight"
+              className="text-5xl text-left sm:text-6xl lg:text-7xl font-extrabold
+               text-zinc-900 dark:text-white tracking-tight"
             />
 
             <div className="flex flex-col justify-center text-left select-none pointer-events-none">

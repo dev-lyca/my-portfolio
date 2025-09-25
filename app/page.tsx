@@ -6,9 +6,8 @@ import ProjectsPage from "./projects/page";
 
 export default function Home() {
   return (
-    <section className="">
+    <section>
       <HeroSection />
-      {/* <TechStackSlider /> */}
       <AboutPage />
       <ProjectsPage />
     </section>
