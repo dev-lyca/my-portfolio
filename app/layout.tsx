@@ -35,11 +35,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="container mx-auto">
-            <div className="container mx-auto mt-2">
-              <Navbar />
-            </div>
-            <main className="overflow-hidden mt-10">{children}</main>
+          <div className="container mx-auto mt-2 bg-black">
+            <Navbar />
+          </div>
+          <div className="">
+            <main className="overflow-hidden mt-10 ">{children}</main>
           </div>
         </ThemeProvider>
       </body>

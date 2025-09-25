@@ -23,7 +23,7 @@ export function Navbar() {
   return (
     <header
       className="fixed top-10 left-1/2 -translate-x-1/2 
-  z-50 w-[90%] mx-auto rounded-full border 
+  z-50 w-[90%] mx-auto rounded-bl-4xl rounded-tr-4xl border 
   bg-background/80 backdrop-blur shadow-lg"
     >
       <div className="flex h-14 items-center justify-between px-6">
@@ -50,7 +50,10 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
 
-          <Button asChild className="hidden md:inline-flex">
+          <Button
+            asChild
+            className="hidden md:inline-flex border rounded-tr-4xl rounded-bl-4xl"
+          >
             <Link href="/resume.pdf" target="_blank">
               Resume
             </Link>

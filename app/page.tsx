@@ -1,15 +1,14 @@
 "use client";
 
 import HeroSection from "@/components/hero-section";
-import TechStackSlider from "@/components/tech-stack-slider";
 import AboutPage from "./about/page";
 import ProjectsPage from "./projects/page";
 
 export default function Home() {
   return (
-    <section className="container mx-auto">
+    <section className="">
       <HeroSection />
-      <TechStackSlider />
+      {/* <TechStackSlider /> */}
       <AboutPage />
       <ProjectsPage />
     </section>
