@@ -61,13 +61,4 @@ export const projects: Project[] = [
       "/images/projects/qrcode2.jpg",
     ],
   },
-  {
-    id: "5",
-    title: "Pending: Beauty Ecommerce",
-    description: "Upcoming ecommerce project.",
-    tech: ["Next.js", "Tailwind", "Vercel"],
-    demoLink: "",
-    githubLink: "",
-    images: ["/images/fallback.png"],
-  },
 ];

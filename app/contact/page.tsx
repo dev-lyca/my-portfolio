@@ -51,7 +51,7 @@ const ContactPage = () => {
     <main className="relative container mx-auto px-6 py-12 mt-20 lg:mt-10 flex flex-col items-center">
       <section className="text-center mb-12 mx-auto space-y-2">
         <motion.h1
-          className="text-4xl font-bold"
+          className="text-5xl font-extrabold tracking-wide uppercase "
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -178,7 +178,7 @@ const ContactPage = () => {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col items-center space-y-6"
+            className="hidden flex-col items-center space-y-6 lg:flex"
           >
             <div className="overflow-hidden">
               <Image

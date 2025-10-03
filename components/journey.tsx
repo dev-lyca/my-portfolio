@@ -14,15 +14,25 @@ export default function JourneyPage() {
 
   return (
     <main className="relative container mx-auto py-8">
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl text-center font-bold mb-6"
-      >
-        Journey
-      </motion.h1>
+      <section className="text-center mb-12 space-y-2">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl font-extrabold tracking-wide uppercase "
+        >
+          JOURNEY
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-muted-foreground"
+        >
+          Take a closer look at my path — from student life, internships, and
+          training experiences, to the career I’m building now.
+        </motion.p>
+      </section>
 
       <section className="space-y-10 mx-auto">
         {items.map((item, i) => {

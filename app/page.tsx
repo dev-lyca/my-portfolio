@@ -7,11 +7,11 @@ import ProjectsPage from "./projects/page";
 
 export default function Home() {
   return (
-    <section>
+    <main>
       <HeroSection />
       <AboutPage />
       <ProjectsPage />
       <ContactPage />
-    </section>
+    </main>
   );
 }

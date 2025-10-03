@@ -7,73 +7,64 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <main className="relative container mx-auto px-10 py-8 mt-20 lg:mt-10">
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl text-center font-bold"
-      >
-        About Me
-      </motion.h1>
-      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-        <section className="flex-shrink-0">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex items-center justify-center"
-          >
-            <motion.div
-              transition={{ type: "spring", stiffness: 100, damping: 10 }}
-              className="relative inline-block"
-            >
-              <div className="relative flex items-center justify-center">
-                <Image
-                  src="/images/mee.png"
-                  alt="Lyca Nobleza - About Me"
-                  width={400}
-                  height={300}
-                  className="object-contain drop-shadow-2xl 
-                  shadow-amber-50  rounded-tl-full rounded-br-full"
-                  priority
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        </section>
+    <main className="relative container mx-auto px-6 py-12 mt-20 lg:mt-10">
+      <section className="text-center mb-12 space-y-2">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl font-extrabold tracking-wide uppercase "
+        >
+          ABOUT ME
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-muted-foreground"
+        >
+          Learn more about who I am
+        </motion.p>
+      </section>
 
-        <section className="flex-1 space-y-6">
+      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="overflow-hidden border-b lg:border-r border-zinc-700"
+        >
+          <Image
+            src="/images/mee.png"
+            alt="Lyca Nobleza"
+            width={400}
+            height={400}
+            className="object-cover"
+            priority
+          />
+        </motion.div>
+
+        {/* Text side like article column */}
+        <section className="flex-1 space-y-6 ">
           {[1, 2, 3, 4].map((i) => (
             <motion.p
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: i * 0.2 }}
-              className="text-lg text-zinc-800 dark:text-muted-foreground leading-relaxed text-justify"
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="text-lg leading-relaxed border-b border-zinc-700 pb-4"
             >
               {i === 1 && (
                 <>
                   I am <span className="font-semibold">Lyca May Nobleza</span>,
-                  a passionate{" "}
-                  <span className="font-semibold">Web Developer</span> with
-                  hands-on experience in building and maintaining websites using{" "}
+                  a <span className="font-semibold">Web Developer</span>{" "}
+                  passionate about building and maintaining websites with{" "}
+                  <Badge variant="destructive">Laravel</Badge> and{" "}
+                  <Badge variant="default">Next.js</Badge>. I hold a{" "}
                   <span className="font-semibold">
-                    <Badge variant={"destructive"}>Laravel</Badge>
-                  </span>{" "}
-                  and{" "}
-                  <span className="font-semibold">
-                    <Badge variant={"default"}>Next.js</Badge>
+                    Bachelor of Science in Information Technology
                   </span>
-                  . I hold a{" "}
-                  <span className="font-semibold">
-                    Bachelor of Science in Information Technology.
-                  </span>
+                  .
                 </>
               )}
               {i === 2 && (
@@ -83,34 +74,33 @@ export default function AboutPage() {
                   writing{" "}
                   <span className="font-semibold">
                     clean, maintainable, and reusable code
-                  </span>
-                  , ensuring scalability and long-term efficiency in projects.
+                  </span>{" "}
+                  to ensure scalability and long-term efficiency.
                 </>
               )}
               {i === 3 && (
                 <>
-                  To boost my productivity, I actively explore{" "}
-                  <span className="font-semibold">
-                    AI-driven development tools
-                  </span>{" "}
-                  and dedicate time to continuous learning. This helps me adapt
-                  quickly to new frameworks and integrate innovative solutions
-                  into my projects.
+                  To boost productivity, I actively explore{" "}
+                  <span className="font-semibold">AI-driven tools</span> and
+                  dedicate time to continuous learning — adapting quickly to new
+                  frameworks and integrating innovative solutions into my
+                  projects.
                 </>
               )}
               {i === 4 && (
                 <>
-                  I am currently upskilling in the{" "}
-                  <span className="font-semibold">MERN stack</span> and look
-                  forward to contributing my adaptability, problem-solving
-                  skills, and passion for continuous growth to future projects.
+                  Currently, I’m upskilling in the{" "}
+                  <span className="font-semibold">MERN stack</span> while
+                  contributing adaptability, problem-solving, and passion for
+                  growth to future projects.
                 </>
               )}
             </motion.p>
           ))}
         </section>
       </div>
-      <div className="mx-0 lg:mx-auto px-1 lg:px-20">
+
+      <div className="mt-16 px-2 lg:px-20 pt-8">
         <JourneyPage />
       </div>
     </main>
