@@ -16,27 +16,31 @@ import { useState } from "react";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 export default function ProjectsPage() {
-  const [viewMode, setViewMode] = useState<"desktop" | "mobile">("desktop");
+  const [viewModes, setViewModes] = useState<
+    Record<string, "desktop" | "mobile">
+  >({});
 
   return (
     <main className="relative container mx-auto px-4 py-16 space-y-16">
       <section className="text-center space-y-2">
         <motion.h1
           className="text-4xl font-bold"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
           My Projects
         </motion.h1>
 
         <motion.p
           className="text-muted-foreground max-w-xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          exit={{ opacity: 0, y: 20 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
           A selection of my recent work, including web applications and UI
           experiments.
@@ -77,11 +81,16 @@ export default function ProjectsPage() {
                     {desktopImages.length > 0 && (
                       <button
                         className={`px-3 py-1 rounded-md text-sm font-medium ${
-                          viewMode === "desktop"
+                          viewModes[project.id] === "desktop"
                             ? "bg-primary text-white dark:text-gray-900"
                             : "bg-gray-200 dark:bg-zinc-700 text-black dark:text-white"
                         }`}
-                        onClick={() => setViewMode("desktop")}
+                        onClick={() =>
+                          setViewModes((prev) => ({
+                            ...prev,
+                            [project.id]: "desktop",
+                          }))
+                        }
                       >
                         Desktop
                       </button>
@@ -89,11 +98,16 @@ export default function ProjectsPage() {
                     {mobileImages.length > 0 && (
                       <button
                         className={`px-3 py-1 rounded-md text-sm font-medium ${
-                          viewMode === "mobile"
+                          viewModes[project.id] === "mobile"
                             ? "bg-primary text-white dark:text-gray-900"
                             : "bg-gray-200 dark:bg-gray-900 text-black dark:text-white"
                         }`}
-                        onClick={() => setViewMode("mobile")}
+                        onClick={() =>
+                          setViewModes((prev) => ({
+                            ...prev,
+                            [project.id]: "mobile",
+                          }))
+                        }
                       >
                         Mobile
                       </button>
@@ -101,66 +115,72 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Desktop Preview */}
-                  {viewMode === "desktop" && desktopImages.length > 0 && (
-                    <div className="relative max-w-[305px] w-full h-auto mx-auto rounded-lg overflow-hidden">
-                      <motion.div
-                        className="flex gap-x-4"
-                        animate={{ x: [0, -desktopImages.length * 100 + "%"] }}
-                        transition={{
-                          duration: desktopImages.length * 6,
-                          ease: "linear",
-                          repeat: Infinity,
-                        }}
-                      >
-                        {[...desktopImages, ...desktopImages].map(
-                          (src, idx) => (
-                            <div
-                              key={idx}
-                              className="relative w-full flex-shrink-0 h-full"
-                            >
-                              <Image
-                                src={src}
-                                alt={project.title}
-                                width={800}
-                                height={450}
-                                className="object-contain rounded-lg"
-                              />
-                            </div>
-                          )
-                        )}
-                      </motion.div>
-                    </div>
-                  )}
+                  {viewModes[project.id] === "desktop" &&
+                    desktopImages.length > 0 && (
+                      <div className="relative max-w-[305px] w-full h-auto mx-auto rounded-lg overflow-hidden">
+                        <motion.div
+                          className="flex gap-x-4"
+                          animate={{
+                            x: [0, -desktopImages.length * 100 + "%"],
+                          }}
+                          transition={{
+                            duration: desktopImages.length * 6,
+                            ease: "linear",
+                            repeat: Infinity,
+                          }}
+                        >
+                          {[...desktopImages, ...desktopImages].map(
+                            (src, idx) => (
+                              <div
+                                key={idx}
+                                className="relative w-full flex-shrink-0 h-full"
+                              >
+                                <Image
+                                  src={src}
+                                  alt={project.title}
+                                  width={800}
+                                  height={450}
+                                  className="object-contain rounded-lg"
+                                />
+                              </div>
+                            )
+                          )}
+                        </motion.div>
+                      </div>
+                    )}
 
                   {/* Mobile Preview */}
-                  {viewMode === "mobile" && mobileImages.length > 0 && (
-                    <div className="relative max-w-[300px] w-full h-auto mx-auto rounded-lg overflow-hidden">
-                      <motion.div
-                        className="flex gap-x-2"
-                        animate={{ x: [0, -mobileImages.length * 100 + "%"] }}
-                        transition={{
-                          duration: mobileImages.length * 6,
-                          ease: "linear",
-                          repeat: Infinity,
-                        }}
-                      >
-                        {[...mobileImages, ...mobileImages].map((src, idx) => (
-                          <div
-                            key={idx}
-                            className="relative max-w-[300px] w-full flex-shrink-0 h-auto"
-                          >
-                            <Image
-                              src={src}
-                              alt={project.title}
-                              width={100}
-                              height={100}
-                              className="object-contain rounded-lg"
-                            />
-                          </div>
-                        ))}
-                      </motion.div>
-                    </div>
-                  )}
+                  {viewModes[project.id] === "mobile" &&
+                    mobileImages.length > 0 && (
+                      <div className="relative max-w-[300px] w-full h-auto mx-auto rounded-lg overflow-hidden">
+                        <motion.div
+                          className="flex gap-x-2"
+                          animate={{ x: [0, -mobileImages.length * 100 + "%"] }}
+                          transition={{
+                            duration: mobileImages.length * 6,
+                            ease: "linear",
+                            repeat: Infinity,
+                          }}
+                        >
+                          {[...mobileImages, ...mobileImages].map(
+                            (src, idx) => (
+                              <div
+                                key={idx}
+                                className="relative max-w-[300px] w-full flex-shrink-0 h-auto"
+                              >
+                                <Image
+                                  src={src}
+                                  alt={project.title}
+                                  width={100}
+                                  height={100}
+                                  className="object-contain rounded-lg"
+                                />
+                              </div>
+                            )
+                          )}
+                        </motion.div>
+                      </div>
+                    )}
 
                   {/* Description */}
                   <p className="text-sm sm:text-base text-muted-foreground">

@@ -3,18 +3,13 @@ import { Project } from "@/types/project";
 export const projects: Project[] = [
   {
     id: "1",
-    title: "LELUXE Clinic",
+    title: "Leluxe Clinic - ADMIN Side",
     description:
       "A full-stack project using PrismaORM, PostgreSQL, Neon, Next.js, deployed on Vercel.",
     tech: ["PrismaORM", "PostgreSQL", "Neon", "Next.js", "Vercel"],
     demoLink: "https://leluxe-clinic.vercel.app",
     githubLink: "",
-    images: [
-      "/images/projects/leluxe1.png",
-      "/images/projects/leluxe2.png",
-      "/images/projects/leluxe.jpg",
-      "/images/projects/leluxe2.jpg",
-    ],
+    images: ["/images/projects/leluxe2.png", "/images/projects/leluxe2.jpg"],
   },
   {
     id: "2",
@@ -53,11 +48,26 @@ export const projects: Project[] = [
   },
   {
     id: "4",
+    title: "QR Code Generator",
+    description:
+      "Simple QR Code generator project built using Next.js 14, Tailwind CSS, and the next-qrcode library.",
+    tech: ["Next.js", "Tailwind", "next-qrcode"],
+    demoLink: "https://qrcode-generator-seven-iota.vercel.app",
+    githubLink: "https://github.com/dev-lyca/qrcode-generator",
+    images: [
+      "/images/projects/qrcode.png",
+      "/images/projects/qrcode1.png",
+      "/images/projects/qrcode1.jpg",
+      "/images/projects/qrcode2.jpg",
+    ],
+  },
+  {
+    id: "5",
     title: "Pending: Beauty Ecommerce",
     description: "Upcoming ecommerce project.",
     tech: ["Next.js", "Tailwind", "Vercel"],
     demoLink: "",
     githubLink: "",
-    images: ["/images/projects/beauty-ecommerce.png"],
+    images: ["/images/fallback.png"],
   },
 ];

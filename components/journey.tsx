@@ -13,7 +13,7 @@ export default function JourneyPage() {
   const items: TimelineItem[] = timeline;
 
   return (
-    <main className="relative py-8">
+    <main className="relative container mx-auto py-8">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -24,10 +24,10 @@ export default function JourneyPage() {
         Journey
       </motion.h1>
 
-      <section className="space-y-10 ">
+      <section className="space-y-10 mx-auto">
         {items.map((item, i) => {
           const Icon = item.icon;
-          const isLeft = i % 2 === 0; 
+          const isLeft = i % 2 === 0;
 
           return (
             <motion.div

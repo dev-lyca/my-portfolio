@@ -68,7 +68,7 @@ export default function HeroSection() {
                 className="border rounded-tr-4xl rounded-bl-4xl"
               >
                 <motion.a
-                  href="#projects"
+                  href="/projects"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -83,7 +83,7 @@ export default function HeroSection() {
                 className="border rounded-tr-4xl rounded-bl-4xl"
               >
                 <motion.a
-                  href="#contact"
+                  href="/contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

@@ -62,7 +62,7 @@ export function Navbar() {
           bg-zinc-900 dark:bg-zinc-100
           shadow-md"
             >
-              <Link href="/resume.pdf" target="_blank">
+              <Link href="/resume" target="_blank">
                 Resume
               </Link>
             </Button>

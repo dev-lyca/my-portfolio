@@ -38,7 +38,7 @@ export default function AboutPage() {
                   width={400}
                   height={300}
                   className="object-contain drop-shadow-2xl 
-                  shadow-amber-50 bg-zinc-700 dark:bg-zinc-100 rounded-tl-full rounded-br-full"
+                  shadow-amber-50  rounded-tl-full rounded-br-full"
                   priority
                 />
               </div>
@@ -110,7 +110,9 @@ export default function AboutPage() {
           ))}
         </section>
       </div>
-      <JourneyPage />
+      <div className="mx-0 lg:mx-auto px-1 lg:px-20">
+        <JourneyPage />
+      </div>
     </main>
   );
 }
