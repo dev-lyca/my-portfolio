@@ -49,7 +49,7 @@ const ContactPage = () => {
 
   return (
     <main className="relative container mx-auto px-6 py-12 mt-20 lg:mt-10 flex flex-col items-center">
-      <section className="text-center mb-12 mx-auto space-y-2">
+      <section className="text-center mb-10 lg:mb-12 mx-auto space-y-2">
         <motion.h1
           className="text-5xl font-extrabold tracking-wide uppercase "
           initial={{ opacity: 0, scale: 0.9 }}
@@ -69,7 +69,7 @@ const ContactPage = () => {
         </motion.p>
       </section>
 
-      <div className="p-8 max-w-5xl w-full">
+      <div className="p-4 lg:p-8 max-w-5xl w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <Card className="p-8">
             <div className="flex justify-center gap-6 mt-6">

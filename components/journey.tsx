@@ -80,6 +80,7 @@ export default function JourneyPage() {
                             fill
                             className="object-cover rounded-bl-4xl rounded-tr-4xl"
                           />
+                          <div className="absolute inset-0 bg-black/40" />
                         </div>
                       </SwiperSlide>
                     ))}

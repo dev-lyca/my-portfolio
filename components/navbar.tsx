@@ -2,10 +2,12 @@
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export function Navbar() {
   const navItems = [
@@ -16,11 +18,13 @@ export function Navbar() {
   ];
 
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header
       className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-[90%] mx-auto 
-    rounded-bl-4xl rounded-tr-4xl border bg-white/80 dark:bg-zinc-900/80 backdrop-blur shadow-lg"
+      rounded-bl-4xl rounded-tr-4xl border bg-white/80 dark:bg-zinc-900/80 
+      backdrop-blur shadow-lg"
     >
       <div className="flex h-14 items-center justify-between px-6">
         <Link
@@ -30,18 +34,34 @@ export function Navbar() {
           dev.elmn
         </Link>
 
-        <nav className="hidden md:flex gap-4">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-zinc-900 dark:text-zinc-100 hover:text-zinc-500 dark:hover:text-zinc-400 transition"
-            >
-              {item.name}
-            </Link>
-          ))}
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-4 items-center">
+          {navItems.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
+
+            return (
+              <Link key={item.href} href={item.href}>
+                {isActive ? (
+                  <Badge
+                    variant="secondary"
+                    className="px-3 py-1 text-sm font-medium rounded-full"
+                  >
+                    {item.name}
+                  </Badge>
+                ) : (
+                  <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition">
+                    {item.name}
+                  </span>
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
+        {/* Theme + Resume */}
         <div className="flex items-center gap-2">
           <ThemeToggle />
 
@@ -58,9 +78,9 @@ export function Navbar() {
             <Button
               asChild
               className="hidden md:inline-flex border rounded-tr-4xl rounded-bl-4xl
-          text-zinc-100 dark:text-zinc-900
-          bg-zinc-900 dark:bg-zinc-100
-          shadow-md"
+              text-zinc-100 dark:text-zinc-900
+              bg-zinc-900 dark:bg-zinc-100
+              shadow-md"
             >
               <Link
                 href="/resume.pdf"
@@ -72,6 +92,7 @@ export function Navbar() {
             </Button>
           </motion.div>
 
+          {/* Mobile Menu Toggle */}
           <Button
             variant="ghost"
             size="icon"
@@ -87,23 +108,40 @@ export function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Navigation */}
       {mobileOpen && (
         <header
           className="md:hidden flex flex-col gap-4 px-6 pb-6 
-        bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-700 
-        rounded-bl-4xl rounded-br-4xl backdrop-blur-3xl"
+          bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-700 
+          rounded-bl-4xl rounded-br-4xl backdrop-blur-3xl"
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-lg font-medium text-zinc-900 dark:text-zinc-100 
-              hover:text-zinc-500 dark:hover:text-zinc-400 transition"
-              onClick={() => setMobileOpen(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+              >
+                {isActive ? (
+                  <Badge
+                    variant="secondary"
+                    className="px-3 py-1 text-lg font-medium rounded-full"
+                  >
+                    {item.name}
+                  </Badge>
+                ) : (
+                  <span className="text-lg font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition">
+                    {item.name}
+                  </span>
+                )}
+              </Link>
+            );
+          })}
 
           <Button
             asChild

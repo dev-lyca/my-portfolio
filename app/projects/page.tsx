@@ -21,8 +21,8 @@ export default function ProjectsPage() {
   >({});
 
   return (
-    <main className="relative container mx-auto px-4 py-16 space-y-16">
-      <section className="text-center space-y-2">
+    <main className="relative container mx-auto px-6 py-12 mt-20 lg:mt-10">
+      <section className="text-center mb-10 lg:mb-12 space-y-2">
         <motion.h1
           className="text-5xl font-extrabold tracking-wide uppercase"
           initial={{ opacity: 0, scale: 0.9 }}
